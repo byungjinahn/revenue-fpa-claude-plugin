@@ -1,0 +1,257 @@
+<meta name="dash-one-writer">
+<style>
+  .rp { display: grid; gap: var(--cds-gap-lg); font-family: var(--font-anthropic-sans); }
+  .rp-head { display: grid; gap: var(--cds-gap-xs); }
+  .rp-title { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: var(--cds-font-size-title); margin: 0; text-wrap: balance; }
+  .rp-take { font-size: var(--cds-font-size-body); margin: 0; max-width: 70ch; }
+  .rp-meta { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); margin: 0; }
+  .rp-tiles { display: grid; gap: var(--cds-gap-md); grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr)); }
+  .rp-card { background: var(--color-panel); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: var(--cds-pad-lg); display: grid; gap: var(--cds-gap-sm); align-content: start; min-width: 0; }
+  .rp-label { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); margin: 0; }
+  .rp-big { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: var(--cds-font-size-title); font-variant-numeric: tabular-nums; margin: 0; }
+  .rp-sub { font-size: var(--cds-font-size-caption); margin: 0; font-variant-numeric: tabular-nums; }
+  .rp-grid { display: grid; gap: var(--cds-gap-md); grid-template-columns: repeat(auto-fit, minmax(min(100%, 26rem), 1fr)); }
+  .rp-h { font-size: var(--cds-font-size-heading); font-weight: var(--cds-font-weight-medium); margin: 0; }
+  .rp-note { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); margin: 0; }
+  .rp-scroll { overflow-x: auto; }
+  .rp-table { width: 100%; border-collapse: collapse; font-size: var(--cds-font-size-caption); font-variant-numeric: tabular-nums; }
+  .rp-table th { text-align: left; font-weight: var(--cds-font-weight-medium); color: var(--color-fg-muted); padding: var(--cds-pad-xs) var(--cds-pad-sm); border-bottom: 1px solid var(--color-border-line); white-space: nowrap; }
+  .rp-table td { padding: var(--cds-pad-xs) var(--cds-pad-sm); border-bottom: 1px solid var(--color-border-line); vertical-align: top; }
+  .rp-table .num { text-align: right; white-space: nowrap; }
+  .rp-pos { color: var(--color-ok); }
+  .rp-neg { color: var(--color-bad); }
+  .rp-warn { color: var(--color-warn); }
+  .rp-list { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--cds-gap-sm); font-size: var(--cds-font-size-body); }
+  .rp-list li { display: grid; grid-template-columns: auto 1fr; gap: var(--cds-gap-sm); align-items: baseline; }
+  .rp-pill { font-size: var(--cds-font-size-caption); border: 1px solid currentColor; border-radius: 999px; padding: 0 var(--cds-pad-sm); white-space: nowrap; }
+  .rp-actions { margin: 0; padding-left: 1.25rem; display: grid; gap: var(--cds-gap-sm); font-size: var(--cds-font-size-body); max-width: 75ch; }
+  .rp-chart { position: relative; min-height: 220px; }
+  .rp-legend { display: flex; flex-wrap: wrap; gap: var(--cds-gap-md); font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); margin: 0; padding: 0; list-style: none; }
+  .rp-legend li { display: flex; align-items: center; gap: var(--cds-gap-xs); }
+  .rp-sw { width: 0.625rem; height: 0.625rem; border-radius: 2px; display: inline-block; }
+  .rp-tip { position: absolute; pointer-events: none; background: var(--cds-surface-popover); border: 1px solid var(--cds-border); border-radius: var(--cds-radius); box-shadow: var(--cds-shadow-popover); padding: var(--cds-pad-xs) var(--cds-pad-sm); font-size: var(--cds-font-size-caption); white-space: nowrap; }
+  .rp-foot { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); margin: 0; max-width: 80ch; }
+  [data-dash-source-state=empty] { color: transparent; }
+  [data-dash-source-state=refreshing] { opacity: .5; transition: opacity var(--cds-dur-slow); }
+</style>
+
+<div class="rp">
+  <header class="rp-head">
+    <h1 class="rp-title" id="top">Northwind Revenue Pulse</h1>
+    <p class="rp-take" data-draw="c-text" data-source="commentary" data-field="text" data-where="key=headline">—</p>
+    <p class="rp-meta">Week of <span data-draw="info" data-source="pulse_info" data-field="as_of">—</span> · <span data-draw="info" data-source="pulse_info" data-field="quarter">—</span> latest view · actuals through <span data-draw="info" data-source="pulse_info" data-field="last_closed_month">—</span> · fictional company, refreshed every Monday by Claude</p>
+  </header>
+
+  <section class="rp-tiles" id="totals" aria-label="Quarter totals">
+    <div class="rp-card">
+      <p class="rp-label">Revenue this quarter</p>
+      <p class="rp-big" data-draw="tot" data-source="quarter_totals" data-field="latest" data-where="metric=revenue">—</p>
+      <p class="rp-sub"><span data-draw="totpct" data-source="quarter_totals" data-field="var_pct" data-where="metric=revenue">—</span> vs plan of <span data-draw="tot" data-source="quarter_totals" data-field="plan" data-where="metric=revenue">—</span></p>
+    </div>
+    <div class="rp-card">
+      <p class="rp-label">Billings this quarter</p>
+      <p class="rp-big" data-draw="tot" data-source="quarter_totals" data-field="latest" data-where="metric=billings">—</p>
+      <p class="rp-sub"><span data-draw="totpct" data-source="quarter_totals" data-field="var_pct" data-where="metric=billings">—</span> vs plan of <span data-draw="tot" data-source="quarter_totals" data-field="plan" data-where="metric=billings">—</span></p>
+    </div>
+    <div class="rp-card">
+      <p class="rp-label">Bookings this quarter</p>
+      <p class="rp-big" data-draw="tot" data-source="quarter_totals" data-field="latest" data-where="metric=bookings">—</p>
+      <p class="rp-sub"><span data-draw="totpct" data-source="quarter_totals" data-field="var_pct" data-where="metric=bookings">—</span> vs plan of <span data-draw="tot" data-source="quarter_totals" data-field="plan" data-where="metric=bookings">—</span></p>
+    </div>
+    <div class="rp-card">
+      <p class="rp-label">Deals needing CFO approval</p>
+      <p class="rp-big" data-draw="info" data-source="pulse_info" data-field="deals_need_cfo">—</p>
+      <p class="rp-sub">of <span data-draw="info" data-source="pulse_info" data-field="deals_count">—</span> deals closing this quarter</p>
+    </div>
+  </section>
+
+  <section class="rp-card" id="actions">
+    <h2 class="rp-h">This week's asks</h2>
+    <ol class="rp-actions">
+      <li data-draw="c-text" data-source="commentary" data-field="text" data-where="key=action1">—</li>
+      <li data-draw="c-text" data-source="commentary" data-field="text" data-where="key=action2">—</li>
+      <li data-draw="c-text" data-source="commentary" data-field="text" data-where="key=action3">—</li>
+    </ol>
+  </section>
+
+  <div class="rp-grid">
+    <section class="rp-card" id="segments">
+      <h2 class="rp-h">Quarter by segment</h2>
+      <p class="rp-note">Latest view is actuals for closed months plus the current forecast for open months.</p>
+      <div class="rp-scroll">
+        <table class="rp-table" data-source="quarter_segments" data-row-key="metric,segment">
+          <thead><tr><th data-field="metric">Metric</th><th data-field="segment">Segment</th><th data-field="plan" class="num">Plan</th><th data-field="latest" class="num">Latest</th><th data-field="var_pct" class="num">Vs plan</th></tr></thead>
+          <tbody data-draw="segtable"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="rp-card" id="variance">
+      <h2 class="rp-h">Last month's material variances</h2>
+      <p class="rp-note">Lines at least 5% and $50K off plan. "Unusual" means the miss breaks that line's own trend (z-score of 2 or more).</p>
+      <div class="rp-scroll">
+        <table class="rp-table" data-source="variance" data-row-key="segment,product,metric">
+          <thead><tr><th data-field="segment">Segment</th><th data-field="product">Product</th><th data-field="metric">Metric</th><th data-field="actual" class="num">Actual</th><th data-field="var_pct" class="num">Vs plan</th><th data-field="anomaly_z">Pattern</th></tr></thead>
+          <tbody data-draw="vartable"></tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+
+  <div class="rp-grid">
+    <section class="rp-card" id="usage">
+      <h2 class="rp-h">Usage revenue, next three months</h2>
+      <p class="rp-note">Each customer's trailing six-month consumption growth, scaled 0.5× for downside and 1.5× for upside. Monthly commit minimums plus overage.</p>
+      <ul class="rp-legend"><li><span class="rp-sw" data-draw="sw" data-i="0"></span>Downside</li><li><span class="rp-sw" data-draw="sw" data-i="1"></span>Base</li><li><span class="rp-sw" data-draw="sw" data-i="2"></span>Upside</li></ul>
+      <div class="rp-chart" data-draw="usagechart" data-source="usage_scenarios"></div>
+    </section>
+
+    <section class="rp-card" id="usage-flags">
+      <h2 class="rp-h">Usage accounts to act on</h2>
+      <p class="rp-note">Committed customers under 85% of commit are renewal risks. Over 100% means overage revenue and a case for a larger commit.</p>
+      <ul class="rp-list" data-draw="flags" data-source="usage_flags"></ul>
+    </section>
+  </div>
+
+  <section class="rp-card" id="deals">
+    <h2 class="rp-h">Deal desk: pipeline closing this quarter</h2>
+    <p class="rp-note">Checked against example guardrails: discount tiers at 10/20/30%, net 45 payment terms, 36-month term, annual billing, ramps, overage price floor, and non-standard terms.</p>
+    <div class="rp-scroll">
+      <table class="rp-table" data-source="deals" data-row-key="deal_id">
+        <thead><tr><th data-field="deal_id">Deal</th><th data-field="customer">Customer</th><th data-field="close_date">Closes</th><th data-field="net_acv" class="num">Net ACV</th><th data-field="discount_pct" class="num">Discount</th><th data-field="approvers" class="num">Approvers</th><th data-field="issues">Issues</th></tr></thead>
+        <tbody data-draw="dealtable"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <p class="rp-foot">All figures are fictional. A scheduled Claude task simulates the week's data, runs the revenue-fpa plugin's scripts (roll-up, variance, usage model, deal-desk check), writes the asks from those results, and refreshes this page. Source: github.com/byungjinahn/revenue-fpa-claude-plugin</p>
+</div>
+
+<script>
+(() => {
+  const D = (v) => Math.abs(v) >= 1e6 ? `$${(v / 1e6).toFixed(1)}M` : `$${(v / 1000).toFixed(0)}K`;
+  const pct = (v) => v == null ? '' : `${v > 0 ? '+' : ''}${v.toFixed(1)}%`;
+  const cls = (v) => v == null ? '' : v >= 0 ? 'rp-pos' : 'rp-neg';
+  const where = (el) => Object.fromEntries(new URLSearchParams(el.getAttribute('data-where') || ''));
+  const pick = (id, el) => {
+    const g = dash.data(id);
+    if (g.status !== 'ok') return null;
+    const w = where(el);
+    return g.data.find((r) => Object.entries(w).every(([k, v]) => String(r[k]) === v)) || null;
+  };
+  const cell = (tr, text, c) => { const td = document.createElement('td'); td.textContent = text; if (c) td.className = c; tr.appendChild(td); return td; };
+  const rowsOf = (id) => { const g = dash.data(id); return g.status === 'ok' ? g.data : null; };
+
+  dash.draw('c-text', (el) => { const r = pick('commentary', el); el.textContent = r ? r.text : '—'; });
+  dash.draw('info', (el) => {
+    const g = dash.data('pulse_info');
+    const r = g.status === 'ok' ? g.data[0] : null;
+    const f = el.getAttribute('data-field');
+    el.textContent = r ? String(r[f]) : '—';
+  });
+  dash.draw('tot', (el) => { const r = pick('quarter_totals', el); el.textContent = r ? D(r[el.getAttribute('data-field')]) : '—'; });
+  dash.draw('totpct', (el) => {
+    const r = pick('quarter_totals', el);
+    el.textContent = r ? pct(r.var_pct) : '—';
+    el.className = r ? cls(r.var_pct) : '';
+  });
+
+  dash.draw('segtable', (tb) => {
+    const rows = rowsOf('quarter_segments');
+    tb.replaceChildren();
+    if (!rows) return;
+    rows.forEach((r) => {
+      const tr = document.createElement('tr');
+      cell(tr, r.metric); cell(tr, r.segment);
+      cell(tr, D(r.plan), 'num'); cell(tr, D(r.latest), 'num'); cell(tr, pct(r.var_pct), `num ${cls(r.var_pct)}`);
+      tb.appendChild(tr);
+    });
+  });
+
+  dash.draw('vartable', (tb) => {
+    const rows = rowsOf('variance');
+    tb.replaceChildren();
+    if (!rows) return;
+    rows.forEach((r) => {
+      const tr = document.createElement('tr');
+      cell(tr, r.segment); cell(tr, r.product); cell(tr, r.metric);
+      cell(tr, D(r.actual), 'num'); cell(tr, pct(r.var_pct), `num ${cls(r.var_pct)}`);
+      cell(tr, r.anomaly_z == null ? 'In trend' : `Unusual (z ${r.anomaly_z > 0 ? '+' : ''}${r.anomaly_z.toFixed(1)})`, r.anomaly_z == null ? '' : 'rp-warn');
+      tb.appendChild(tr);
+    });
+  });
+
+  dash.draw('dealtable', (tb) => {
+    const rows = rowsOf('deals');
+    tb.replaceChildren();
+    if (!rows) return;
+    rows.forEach((r) => {
+      const tr = document.createElement('tr');
+      cell(tr, r.deal_id); cell(tr, r.customer); cell(tr, d3.utcFormat('%b %-d')(new Date(r.close_date)));
+      cell(tr, D(r.net_acv), 'num'); cell(tr, `${r.discount_pct.toFixed(0)}%`, 'num');
+      cell(tr, String(r.approvers), `num ${r.approvers >= 4 ? 'rp-warn' : ''}`);
+      cell(tr, r.issues, r.issues === 'Within guardrails' ? 'rp-pos' : '');
+      tb.appendChild(tr);
+    });
+  });
+
+  dash.draw('flags', (ul) => {
+    const rows = rowsOf('usage_flags');
+    ul.replaceChildren();
+    if (!rows) return;
+    const label = { risk: ['Risk', 'rp-neg'], expansion: ['Expand', 'rp-pos'], check: ['Check', 'rp-warn'] };
+    rows.forEach((r) => {
+      const li = document.createElement('li');
+      const pill = document.createElement('span');
+      const [t, c] = label[r.type] || label.check;
+      pill.textContent = t; pill.className = `rp-pill ${c}`;
+      const txt = document.createElement('span');
+      const b = document.createElement('b'); b.textContent = r.customer;
+      txt.append(b, document.createTextNode(`: ${r.flag}`));
+      li.append(pill, txt);
+      ul.appendChild(li);
+    });
+  });
+
+  dash.draw('sw', (el) => { el.style.background = dash.colors[Number(el.getAttribute('data-i'))]; });
+
+  dash.draw('usagechart', (el) => {
+    const rows = rowsOf('usage_scenarios');
+    el.replaceChildren();
+    if (!rows) return;
+    const scen = ['Downside', 'Base', 'Upside'];
+    const months = [...new Set(rows.map((r) => r.month))];
+    const W = Math.max(280, el.clientWidth), H = 220, m = { t: 10, r: 8, b: 26, l: 8 };
+    const y = d3.scaleLinear([0, d3.max(rows, (r) => r.revenue) * 1.1], [H - m.b, m.t]).nice();
+    const svg = d3.select(el).append('svg').attr('width', '100%').attr('viewBox', `0 0 ${W} ${H}`);
+    const yAxis = svg.append('g').call(d3.axisLeft(y).ticks(4).tickFormat((v) => D(v)));
+    yAxis.attr('font-size', null).attr('font-family', null);
+    let wMax = 0; yAxis.selectAll('text').each(function () { wMax = Math.max(wMax, this.getComputedTextLength()); });
+    m.l = wMax + 12;
+    yAxis.attr('transform', `translate(${m.l},0)`);
+    yAxis.select('.domain').remove();
+    yAxis.selectAll('line').attr('x2', W - m.l - m.r).attr('stroke', 'var(--cds-chart-grid)');
+    yAxis.selectAll('text').attr('fill', 'var(--color-fg-muted)').attr('font-size', 'var(--cds-font-size-caption)');
+    const x0 = d3.scaleBand(months, [m.l, W - m.r]).padding(0.25);
+    const x1 = d3.scaleBand(scen, [0, x0.bandwidth()]).padding(0.12);
+    const xAxis = svg.append('g').attr('transform', `translate(0,${H - m.b})`).call(d3.axisBottom(x0).tickSizeOuter(0).tickFormat((s) => d3.utcFormat('%b %Y')(new Date(s + '-01'))));
+    xAxis.attr('font-size', null).attr('font-family', null);
+    xAxis.select('.domain').attr('stroke', 'var(--cds-chart-axis)');
+    xAxis.selectAll('line').remove();
+    xAxis.selectAll('text').attr('fill', 'var(--color-fg-muted)').attr('font-size', 'var(--cds-font-size-caption)');
+    const tip = document.createElement('div'); tip.className = 'rp-tip'; tip.hidden = true; el.appendChild(tip);
+    svg.append('g').selectAll('rect').data(rows).join('rect')
+      .attr('x', (r) => x0(r.month) + x1(r.scenario)).attr('width', Math.min(32, x1.bandwidth()))
+      .attr('y', (r) => y(r.revenue)).attr('height', (r) => y(0) - y(r.revenue)).attr('rx', 3)
+      .attr('fill', (r) => dash.colors[scen.indexOf(r.scenario)])
+      .on('pointermove', (ev, r) => {
+        tip.hidden = false;
+        tip.textContent = `${r.scenario} · ${d3.utcFormat('%b %Y')(new Date(r.month + '-01'))}: ${D(r.revenue)}`;
+        const [px, py] = d3.pointer(ev, el);
+        tip.style.left = `${Math.min(px + 10, el.clientWidth - tip.offsetWidth - 4)}px`;
+        tip.style.top = `${Math.max(0, py - 30)}px`;
+      })
+      .on('pointerleave', () => { tip.hidden = true; });
+  });
+})();
+</script>

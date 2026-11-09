@@ -1,0 +1,6 @@
+deal_id,customer,segment,close_date,list_acv,net_acv,term_months,payment_terms_days,billing_frequency,ramp,usage_commit_units,overage_price,non_standard_terms
+D-1041,Granite Insurance,Enterprise,2026-12-19,480000,312000,36,30,annual,N,0,,
+D-1042,Helix Biotech,Enterprise,2026-12-23,260000,221000,24,90,quarterly,Y,1500000,0.028,termination for convenience
+D-1043,Ion Retail,Mid-Market,2026-11-28,95000,85500,12,30,annual,N,0,,
+D-1044,Juniper Telecom,Enterprise,2026-12-30,720000,540000,48,60,annual,Y,4000000,0.03,MFN pricing; free services credits
+D-1045,Kestrel Media,Mid-Market,2026-12-15,140000,98000,12,45,monthly,N,800000,0.045,

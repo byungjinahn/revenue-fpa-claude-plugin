@@ -1,0 +1,20 @@
+{
+  "_comment": "Example approval matrix. Replace with your company's policy.",
+  "discount_tiers": [
+    { "above_pct": 10, "approver": "VP Sales" },
+    { "above_pct": 20, "approver": "CRO" },
+    { "above_pct": 30, "approver": "CFO" }
+  ],
+  "payment_terms": { "standard_max_days": 45, "approver": "CFO" },
+  "term": { "standard_max_months": 36, "approver": "CFO" },
+  "billing": { "standard": ["annual"], "approver": "CFO" },
+  "ramp": { "approvers": ["CFO", "Revenue Accounting"] },
+  "usage": { "min_overage_price": 0.03, "approver": "CRO" },
+  "large_deal_tcv": { "threshold": 1000000, "approver": "CFO" },
+  "non_standard_terms": {
+    "termination for convenience": { "approvers": ["Legal", "Revenue Accounting"], "why": "may shorten the ASC 606 contract term and cut booked TCV" },
+    "mfn": { "approvers": ["Legal", "CFO"], "why": "most-favored-nation clause constrains future pricing" },
+    "free services": { "approvers": ["Revenue Accounting"], "why": "separate performance obligation; allocate transaction price" },
+    "acceptance": { "approvers": ["Legal", "Revenue Accounting"], "why": "customer acceptance can delay revenue recognition" }
+  }
+}

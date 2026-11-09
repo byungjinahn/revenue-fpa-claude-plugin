@@ -1,0 +1,55 @@
+month,customer,segment,committed_units,consumed_units,unit_price,overage_price
+2026-01,Acme Robotics,Enterprise,2000000,1878374,0.004,0.035
+2026-02,Acme Robotics,Enterprise,2000000,1783197,0.004,0.035
+2026-03,Acme Robotics,Enterprise,2000000,1907661,0.004,0.035
+2026-04,Acme Robotics,Enterprise,2000000,1965471,0.004,0.035
+2026-05,Acme Robotics,Enterprise,2000000,2146266,0.004,0.035
+2026-06,Acme Robotics,Enterprise,2000000,2093871,0.004,0.035
+2026-07,Acme Robotics,Enterprise,2000000,2158190,0.004,0.035
+2026-08,Acme Robotics,Enterprise,2000000,2297579,0.004,0.035
+2026-09,Acme Robotics,Enterprise,2000000,2376037,0.004,0.035
+2026-01,Blue Harbor Bank,Enterprise,3500000,2553700,0.003,0.032
+2026-02,Blue Harbor Bank,Enterprise,3500000,2411706,0.003,0.032
+2026-03,Blue Harbor Bank,Enterprise,3500000,2488013,0.003,0.032
+2026-04,Blue Harbor Bank,Enterprise,3500000,2389196,0.003,0.032
+2026-05,Blue Harbor Bank,Enterprise,3500000,2247692,0.003,0.032
+2026-06,Blue Harbor Bank,Enterprise,3500000,2446254,0.003,0.032
+2026-07,Blue Harbor Bank,Enterprise,3500000,2384135,0.003,0.032
+2026-08,Blue Harbor Bank,Enterprise,3500000,2390658,0.003,0.032
+2026-09,Blue Harbor Bank,Enterprise,3500000,2357114,0.003,0.032
+2026-01,Cobalt Health,Mid-Market,900000,826576,0.006,0.042
+2026-02,Cobalt Health,Mid-Market,900000,817459,0.006,0.042
+2026-03,Cobalt Health,Mid-Market,900000,847096,0.006,0.042
+2026-04,Cobalt Health,Mid-Market,900000,831420,0.006,0.042
+2026-05,Cobalt Health,Mid-Market,900000,873592,0.006,0.042
+2026-06,Cobalt Health,Mid-Market,900000,942651,0.006,0.042
+2026-07,Cobalt Health,Mid-Market,900000,892531,0.006,0.042
+2026-08,Cobalt Health,Mid-Market,900000,955608,0.006,0.042
+2026-09,Cobalt Health,Mid-Market,900000,940435,0.006,0.042
+2026-01,Dune Logistics,Mid-Market,600000,525569,0.005,0.045
+2026-02,Dune Logistics,Mid-Market,600000,527871,0.005,0.045
+2026-03,Dune Logistics,Mid-Market,600000,562313,0.005,0.045
+2026-04,Dune Logistics,Mid-Market,600000,556956,0.005,0.045
+2026-05,Dune Logistics,Mid-Market,600000,592435,0.005,0.045
+2026-06,Dune Logistics,Mid-Market,600000,663645,0.005,0.045
+2026-07,Dune Logistics,Mid-Market,600000,669809,0.005,0.045
+2026-08,Dune Logistics,Mid-Market,600000,699579,0.005,0.045
+2026-09,Dune Logistics,Mid-Market,600000,748391,0.005,0.045
+2026-01,Ember Games,Self-Serve,0,304660,0.0,0.05
+2026-02,Ember Games,Self-Serve,0,325837,0.0,0.05
+2026-03,Ember Games,Self-Serve,0,314096,0.0,0.05
+2026-04,Ember Games,Self-Serve,0,351576,0.0,0.05
+2026-05,Ember Games,Self-Serve,0,332721,0.0,0.05
+2026-06,Ember Games,Self-Serve,0,347617,0.0,0.05
+2026-07,Ember Games,Self-Serve,0,374392,0.0,0.05
+2026-08,Ember Games,Self-Serve,0,526443,0.0,0.05
+2026-09,Ember Games,Self-Serve,0,702653,0.0,0.05
+2026-01,Fjord Analytics,Self-Serve,0,301733,0.0,0.05
+2026-02,Fjord Analytics,Self-Serve,0,326771,0.0,0.05
+2026-03,Fjord Analytics,Self-Serve,0,342517,0.0,0.05
+2026-04,Fjord Analytics,Self-Serve,0,351056,0.0,0.05
+2026-05,Fjord Analytics,Self-Serve,0,373154,0.0,0.05
+2026-06,Fjord Analytics,Self-Serve,0,387818,0.0,0.05
+2026-07,Fjord Analytics,Self-Serve,0,422173,0.0,0.05
+2026-08,Fjord Analytics,Self-Serve,0,410528,0.0,0.05
+2026-09,Fjord Analytics,Self-Serve,0,451897,0.0,0.05
