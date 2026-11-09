@@ -9,5 +9,13 @@
   "homepage": "https://github.com/byungjinahn/revenue-fpa-claude-plugin",
   "repository": "https://github.com/byungjinahn/revenue-fpa-claude-plugin",
   "license": "MIT",
-  "keywords": ["fpa", "finance", "revenue", "forecasting", "saas", "deal-desk", "asc-606"]
+  "keywords": [
+    "fpa",
+    "finance",
+    "revenue",
+    "forecasting",
+    "saas",
+    "deal-desk",
+    "asc-606"
+  ]
 }

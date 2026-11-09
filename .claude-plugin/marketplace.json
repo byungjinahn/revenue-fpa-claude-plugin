@@ -1,0 +1,16 @@
+{
+  "name": "byungjinahn-finance",
+  "owner": {
+    "name": "Byungjin Ahn"
+  },
+  "metadata": {
+    "description": "Finance workflows for Claude by Byungjin Ahn"
+  },
+  "plugins": [
+    {
+      "name": "revenue-fpa",
+      "source": "./",
+      "description": "Revenue FP&A workflows: forecast roll-ups, variance analysis, consumption modeling, deal-desk review."
+    }
+  ]
+}
