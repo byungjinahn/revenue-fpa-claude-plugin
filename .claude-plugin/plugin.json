@@ -1,0 +1,13 @@
+{
+  "name": "revenue-fpa",
+  "version": "0.2.0",
+  "description": "Revenue FP&A workflows for Claude: forecast roll-ups, variance and anomaly detection, consumption-revenue modeling, deal-desk guardrail review, and ARR-to-GAAP-revenue reconciliation. Every number is computed by a script before Claude writes the narrative.",
+  "author": {
+    "name": "Byungjin Ahn",
+    "url": "https://github.com/byungjinahn"
+  },
+  "homepage": "https://github.com/byungjinahn/revenue-fpa-claude-plugin",
+  "repository": "https://github.com/byungjinahn/revenue-fpa-claude-plugin",
+  "license": "MIT",
+  "keywords": ["fpa", "finance", "revenue", "forecasting", "saas", "deal-desk", "asc-606"]
+}
